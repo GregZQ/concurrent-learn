@@ -2,6 +2,7 @@ package com.conclearn;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * @author GregZQ
@@ -30,5 +31,17 @@ public class UncaughtExceptionHandlerUse {
         Thread thread = new Thread(runnable);
         thread.setUncaughtExceptionHandler(new MyUncaughtException());
         thread.start();
+
+        ExecutorService executors = Executors.newFixedThreadPool(1, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = new Thread(r);
+                thread.setUncaughtExceptionHandler(new MyUncaughtException());
+                return thread;
+            }
+        });
+        executors.execute(runnable);
+        //如果没有指定线程的异常处理器，线程组也没有，就会使用默认的
+        Thread.setDefaultUncaughtExceptionHandler(new MyUncaughtException());
     }
 }
