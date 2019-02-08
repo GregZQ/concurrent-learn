@@ -8,11 +8,7 @@ import java.util.concurrent.Future;
 /**
  * @author GregZQ
  * @create 2019-02-03 10:48
- * @des: 通过Future获取运行任务结果
- *
- *  Future可以表示一个任务的执行周期：
- *     获取任务的结果、
- *     取消任务
+ * @des: 通过Future可以阻塞获取运行任务结果
  */
 class MyThread implements Runnable{
     @Override

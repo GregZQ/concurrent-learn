@@ -30,8 +30,6 @@ public class FutureTaskUse {
         //线程启动
         thread.start();
 
-        //表示主线程在执行其他任务耗费时间
-        Thread.sleep(4000);
         //阻塞获取结果，达到同步性
         Integer result = futureTask.get();
         System.out.println(result);

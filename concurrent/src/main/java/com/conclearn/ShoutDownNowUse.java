@@ -69,7 +69,7 @@ class TrackingExecutor extends AbstractExecutorService{
         });
     }
 }
-public class ShowDownNowUse {
+public class ShoutDownNowUse {
     public static void main(String args[]) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
